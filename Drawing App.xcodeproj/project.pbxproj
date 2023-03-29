@@ -7,16 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA2926DB29D43304005931AD /* CanvasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2926DA29D43304005931AD /* CanvasViewController.swift */; };
+		FA2926DD29D4366C005931AD /* Extenstions+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2926DC29D4366C005931AD /* Extenstions+View.swift */; };
 		FA31DB9829D405CC004FAC2F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA31DB9729D405CC004FAC2F /* AppDelegate.swift */; };
 		FA31DB9A29D405CC004FAC2F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA31DB9929D405CC004FAC2F /* SceneDelegate.swift */; };
 		FA31DB9F29D405CC004FAC2F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA31DB9D29D405CC004FAC2F /* Main.storyboard */; };
 		FA31DBA129D405CE004FAC2F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA31DBA029D405CE004FAC2F /* Assets.xcassets */; };
 		FA31DBA429D405CE004FAC2F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA31DBA229D405CE004FAC2F /* LaunchScreen.storyboard */; };
-		FA31DBB729D40734004FAC2F /* DrawingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA31DBB629D40734004FAC2F /* DrawingViewController.swift */; };
-		FA31DBBB29D41070004FAC2F /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA31DBBA29D41070004FAC2F /* ImageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FA2926DA29D43304005931AD /* CanvasViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasViewController.swift; sourceTree = "<group>"; };
+		FA2926DC29D4366C005931AD /* Extenstions+View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extenstions+View.swift"; sourceTree = "<group>"; };
 		FA31DB9429D405CC004FAC2F /* Drawing App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Drawing App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA31DB9729D405CC004FAC2F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA31DB9929D405CC004FAC2F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,8 +26,6 @@
 		FA31DBA029D405CE004FAC2F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA31DBA329D405CE004FAC2F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA31DBA529D405CE004FAC2F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FA31DBB629D40734004FAC2F /* DrawingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingViewController.swift; sourceTree = "<group>"; };
-		FA31DBBA29D41070004FAC2F /* ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +39,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FA2926D829D432DB005931AD /* Canvas View */ = {
+			isa = PBXGroup;
+			children = (
+				FA2926D929D432F3005931AD /* View */,
+			);
+			path = "Canvas View";
+			sourceTree = "<group>";
+		};
+		FA2926D929D432F3005931AD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FA2926DA29D43304005931AD /* CanvasViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		FA31DB8B29D405CC004FAC2F = {
 			isa = PBXGroup;
 			children = (
@@ -89,7 +105,7 @@
 		FA31DBAE29D40677004FAC2F /* Serecns */ = {
 			isa = PBXGroup;
 			children = (
-				FA31DBB229D406D1004FAC2F /* Drawing View */,
+				FA2926D829D432DB005931AD /* Canvas View */,
 			);
 			path = Serecns;
 			sourceTree = "<group>";
@@ -97,6 +113,7 @@
 		FA31DBAF29D4068B004FAC2F /* Extenstions */ = {
 			isa = PBXGroup;
 			children = (
+				FA2926DC29D4366C005931AD /* Extenstions+View.swift */,
 			);
 			path = Extenstions;
 			sourceTree = "<group>";
@@ -115,55 +132,6 @@
 				FA31DB9929D405CC004FAC2F /* SceneDelegate.swift */,
 			);
 			path = Application;
-			sourceTree = "<group>";
-		};
-		FA31DBB229D406D1004FAC2F /* Drawing View */ = {
-			isa = PBXGroup;
-			children = (
-				FA31DBB529D406EC004FAC2F /* ViewModel */,
-				FA31DBB429D406E5004FAC2F /* Model */,
-				FA31DBB329D406DD004FAC2F /* View */,
-			);
-			path = "Drawing View";
-			sourceTree = "<group>";
-		};
-		FA31DBB329D406DD004FAC2F /* View */ = {
-			isa = PBXGroup;
-			children = (
-				FA31DBB829D41054004FAC2F /* Custom View */,
-				FA31DBB629D40734004FAC2F /* DrawingViewController.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		FA31DBB429D406E5004FAC2F /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		FA31DBB529D406EC004FAC2F /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		FA31DBB829D41054004FAC2F /* Custom View */ = {
-			isa = PBXGroup;
-			children = (
-				FA31DBB929D41063004FAC2F /* View */,
-			);
-			path = "Custom View";
-			sourceTree = "<group>";
-		};
-		FA31DBB929D41063004FAC2F /* View */ = {
-			isa = PBXGroup;
-			children = (
-				FA31DBBA29D41070004FAC2F /* ImageViewController.swift */,
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -238,8 +206,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA31DB9829D405CC004FAC2F /* AppDelegate.swift in Sources */,
-				FA31DBB729D40734004FAC2F /* DrawingViewController.swift in Sources */,
-				FA31DBBB29D41070004FAC2F /* ImageViewController.swift in Sources */,
+				FA2926DD29D4366C005931AD /* Extenstions+View.swift in Sources */,
+				FA2926DB29D43304005931AD /* CanvasViewController.swift in Sources */,
 				FA31DB9A29D405CC004FAC2F /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

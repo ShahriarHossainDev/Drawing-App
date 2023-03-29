@@ -1,5 +1,5 @@
 //
-//  DrawingViewController.swift
+//  CanvasViewController.swift
 //  Drawing App
 //
 //  Created by Shishir_Mac on 29/3/23.
@@ -8,18 +8,29 @@
 import UIKit
 import PencilKit
 
-class DrawingViewController: UIViewController, PKCanvasViewDelegate {
+class CanvasViewController: UIViewController, PKCanvasViewDelegate {
     
     @IBOutlet weak var canvasView: PKCanvasView!
+    
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var subTitleLabel: UILabel!
+    @IBOutlet weak var drawingLabel: UILabel!
+    @IBOutlet weak var timeImageView: UIImageView!
+    @IBOutlet weak var holdLabel: UILabel!
     
     let drawing = PKDrawing()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //canvasView.drawing = drawing
         canvasView.delegate = self
-        canvasView.drawingPolicy = .anyInput
+        canvasView.drawing = drawing
+        
+        canvasView.layer.borderWidth = 1
+        canvasView.layer.borderColor = UIColor(ciColor: .black).cgColor
+        
+        drawingLabel.layer.borderWidth = 1
+        drawingLabel.layer.borderColor = UIColor(ciColor: .gray).cgColor
+        
         // Do any additional setup after loading the view.
     }
     
@@ -36,21 +47,16 @@ class DrawingViewController: UIViewController, PKCanvasViewDelegate {
         canvasView.drawingPolicy = .anyInput
     }
     
-    
-    @IBAction func clearBarButtonItem(_ sender: UIBarButtonItem) {
+    @IBAction func clearButtonAction(_ sender: UIButton) {
         canvasView.drawing = PKDrawing()
     }
     
-    
-    @IBAction func saveImageBarButtonAction(_ sender: UIBarButtonItem) {
-        let imageVC = self.storyboard?.instantiateViewController(identifier: "imageViews") as! ImageViewController
-        
+    @IBAction func saveImageButtonAction(_ sender: UIButton) {
         let img = UIGraphicsImageRenderer(bounds: canvasView.bounds).image { (_) in
-            view.drawHierarchy(in: view.bounds, afterScreenUpdates: true)
+            canvasView.drawHierarchy(in: canvasView.bounds, afterScreenUpdates: true)
         }
-        imageVC.img = img
         
-        self.navigationController?.pushViewController(imageVC, animated: true)
+        UIImageWriteToSavedPhotosAlbum(img, nil, nil, nil)
     }
     
 }
