@@ -44,7 +44,7 @@ class CanvasViewController: UIViewController, PKCanvasViewDelegate {
         toolPicker.setVisible(true, forFirstResponder: canvasView)
         toolPicker.addObserver(canvasView)
         canvasView.becomeFirstResponder()
-        canvasView.drawingPolicy = .anyInput
+        //canvasView.drawingPolicy = .anyInput
     }
     
     @IBAction func clearButtonAction(_ sender: UIButton) {
