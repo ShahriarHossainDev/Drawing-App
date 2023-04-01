@@ -110,7 +110,7 @@ class CanvasViewController: UIViewController{
     }
     
     @IBAction func doneButtonAction(_ sender: UIButton) {
-        print("Done")
+        drawView.clearCanvasView()
     }
 
 }
