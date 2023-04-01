@@ -6,11 +6,8 @@
 //
 
 import UIKit
-import PencilKit
 
-class CanvasViewController: UIViewController, PKCanvasViewDelegate {
-    
-    @IBOutlet weak var canvasView: PKCanvasView!
+class CanvasViewController: UIViewController{
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var subTitleLabel: UILabel!
@@ -18,45 +15,82 @@ class CanvasViewController: UIViewController, PKCanvasViewDelegate {
     @IBOutlet weak var timeImageView: UIImageView!
     @IBOutlet weak var holdLabel: UILabel!
     
-    let drawing = PKDrawing()
+    @IBOutlet weak var toolView: UIView!
+    @IBOutlet weak var clearButton: UIButton!
+    @IBOutlet weak var eraserButton: UIButton!
+    @IBOutlet weak var colorButton: UIButton!
+    @IBOutlet weak var pencilButton: UIButton!
+    @IBOutlet weak var lineSizeButton: UIButton!
+    @IBOutlet weak var doneButton: UIButton!
+    
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        canvasView.delegate = self
-        canvasView.drawing = drawing
-        
-        canvasView.layer.borderWidth = 1
-        canvasView.layer.borderColor = UIColor(ciColor: .black).cgColor
+//        canvasView.delegate = self
+//        canvasView.drawing = drawing
+//
+//        canvasView.layer.borderWidth = 1
+//        canvasView.layer.borderColor = UIColor(ciColor: .black).cgColor
         
         drawingLabel.layer.borderWidth = 1
-        drawingLabel.layer.borderColor = UIColor(ciColor: .gray).cgColor
+        drawingLabel.layer.borderColor = UIColor(ciColor: .black).cgColor
+        
+        toolView.layer.borderWidth = 1
+        toolView.layer.borderColor = UIColor(ciColor: .black).cgColor
+        
+        doneButton.layer.borderWidth = 1
+        doneButton.layer.borderColor = UIColor(ciColor: .black).cgColor
+        doneButton.layer.cornerRadius = doneButton.frame.size.height / 2
         
         // Do any additional setup after loading the view.
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        setupCanvasView()
+        //setupCanvasView()
     }
     
-    private func setupCanvasView() {
-        let toolPicker = PKToolPicker()
-        toolPicker.setVisible(true, forFirstResponder: canvasView)
-        toolPicker.addObserver(canvasView)
-        canvasView.becomeFirstResponder()
-        //canvasView.drawingPolicy = .anyInput
-    }
+//    private func setupCanvasView() {
+//        let toolPicker = PKToolPicker()
+//        toolPicker.setVisible(true, forFirstResponder: canvasView)
+//        toolPicker.addObserver(canvasView)
+//        canvasView.becomeFirstResponder()
+//        //canvasView.drawingPolicy = .anyInput
+//    }
     
     @IBAction func clearButtonAction(_ sender: UIButton) {
-        canvasView.drawing = PKDrawing()
+        print("clearButtonAction")
     }
     
-    @IBAction func saveImageButtonAction(_ sender: UIButton) {
-        let img = UIGraphicsImageRenderer(bounds: canvasView.bounds).image { (_) in
-            canvasView.drawHierarchy(in: canvasView.bounds, afterScreenUpdates: true)
-        }
-        
-        UIImageWriteToSavedPhotosAlbum(img, nil, nil, nil)
+    @IBAction func eraserButtonAction(_ sender: UIButton) {
+        print("eraserButtonAction")
     }
     
+    @IBAction func colorButtonAction(_ sender: UIButton) {
+        print("colorButtonAction")
+    }
+    
+    @IBAction func pencilButtonAction(_ sender: UIButton) {
+        print("pencilButtonAction")
+    }
+    
+    @IBAction func lineSizeButtonAction(_ sender: UIButton) {
+        print("lineSizeButtonAction")
+    }
+    
+    @IBAction func doneButtonAction(_ sender: UIButton) {
+    }
+    //    @IBAction func clearButtonAction(_ sender: UIButton) {
+//        canvasView.drawing = PKDrawing()
+//    }
+//
+//    @IBAction func saveImageButtonAction(_ sender: UIButton) {
+//        let img = UIGraphicsImageRenderer(bounds: canvasView.bounds).image { (_) in
+//            canvasView.drawHierarchy(in: canvasView.bounds, afterScreenUpdates: true)
+//        }
+//
+//        UIImageWriteToSavedPhotosAlbum(img, nil, nil, nil)
+//    }
+//
 }

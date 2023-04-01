@@ -14,6 +14,7 @@
 		FA31DB9F29D405CC004FAC2F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA31DB9D29D405CC004FAC2F /* Main.storyboard */; };
 		FA31DBA129D405CE004FAC2F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA31DBA029D405CE004FAC2F /* Assets.xcassets */; };
 		FA31DBA429D405CE004FAC2F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA31DBA229D405CE004FAC2F /* LaunchScreen.storyboard */; };
+		FAA095C429D7F84600513664 /* DrawCanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA095C329D7F84600513664 /* DrawCanvasView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		FA31DBA029D405CE004FAC2F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA31DBA329D405CE004FAC2F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA31DBA529D405CE004FAC2F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FAA095C329D7F84600513664 /* DrawCanvasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawCanvasView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +44,7 @@
 		FA2926D829D432DB005931AD /* Canvas View */ = {
 			isa = PBXGroup;
 			children = (
+				FAA095C529D7F86400513664 /* Model */,
 				FA2926D929D432F3005931AD /* View */,
 			);
 			path = "Canvas View";
@@ -121,6 +124,7 @@
 		FA31DBB029D40697004FAC2F /* Constant */ = {
 			isa = PBXGroup;
 			children = (
+				FAA095C329D7F84600513664 /* DrawCanvasView.swift */,
 			);
 			path = Constant;
 			sourceTree = "<group>";
@@ -132,6 +136,13 @@
 				FA31DB9929D405CC004FAC2F /* SceneDelegate.swift */,
 			);
 			path = Application;
+			sourceTree = "<group>";
+		};
+		FAA095C529D7F86400513664 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -208,6 +219,7 @@
 				FA31DB9829D405CC004FAC2F /* AppDelegate.swift in Sources */,
 				FA2926DD29D4366C005931AD /* Extenstions+View.swift in Sources */,
 				FA2926DB29D43304005931AD /* CanvasViewController.swift in Sources */,
+				FAA095C429D7F84600513664 /* DrawCanvasView.swift in Sources */,
 				FA31DB9A29D405CC004FAC2F /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
