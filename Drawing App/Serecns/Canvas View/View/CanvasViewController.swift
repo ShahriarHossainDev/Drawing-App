@@ -15,7 +15,6 @@ class CanvasViewController: UIViewController{
     @IBOutlet weak var drawingLabel: UILabel!
     @IBOutlet weak var timeImageView: UIImageView!
     @IBOutlet weak var holdLabel: UILabel!
-    
     @IBOutlet weak var toolView: UIView!
     @IBOutlet weak var clearButton: UIButton!
     @IBOutlet weak var eraserButton: UIButton!
@@ -23,15 +22,11 @@ class CanvasViewController: UIViewController{
     @IBOutlet weak var pencilButton: UIButton!
     @IBOutlet weak var lineSizeButton: UIButton!
     @IBOutlet weak var doneButton: UIButton!
-    
-   
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        canvasView.delegate = self
-//        canvasView.drawing = drawing
-//
-        
+
         drawView.layer.borderWidth = 1
         drawView.layer.borderColor = UIColor(ciColor: .black).cgColor
         
@@ -47,25 +42,23 @@ class CanvasViewController: UIViewController{
         
         setLineSize()
         setColorButton()
-        // Do any additional setup after loading the view.
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        //setupCanvasView()
     }
     
     // MARK: - Function
     
     func setLineSize() {
-        let lineClosure = { (action: UIAction) in
-            print(action.title) }
         
         lineSizeButton.menu = UIMenu(children: [
-            UIAction(title: "1", handler: lineClosure),
-            UIAction(title: "2", handler: lineClosure),
-            UIAction(title: "3", handler: lineClosure),
-            UIAction(title: "4", handler: lineClosure)
+            UIAction(title: "1", image: UIImage(named: "tilde"), handler: { [self] ( _ ) in drawView.strokeWidth = CGFloat(1)}),
+            UIAction(title: "2", image: UIImage(named: "tilde"), handler: { [self] ( _ ) in drawView.strokeWidth = CGFloat(2)}),
+            UIAction(title: "3", image: UIImage(named: "tilde"), handler: { [self] ( _ ) in drawView.strokeWidth = CGFloat(3)}),
+            UIAction(title: "4", image: UIImage(named: "tilde"), handler: { [self] ( _ ) in drawView.strokeWidth = CGFloat(4)}),
+            UIAction(title: "5", image: UIImage(named: "tilde"), handler: { [self] ( _ ) in drawView.strokeWidth = CGFloat(5)}),
+            UIAction(title: "6", image: UIImage(named: "tilde"), handler: { [self] ( _ ) in drawView.strokeWidth = CGFloat(6)}),
+            UIAction(title: "7", image: UIImage(named: "tilde"), handler: { [self] ( _ ) in drawView.strokeWidth = CGFloat(7)}),
+            UIAction(title: "8", image: UIImage(named: "tilde"), handler: { [self] ( _ ) in drawView.strokeWidth = CGFloat(8)}),
+            UIAction(title: "9", image: UIImage(named: "tilde"), handler: { [self] ( _ ) in drawView.strokeWidth = CGFloat(9)}),
+            UIAction(title: "10", image: UIImage(named: "tilde"), handler: { [self] ( _ ) in drawView.strokeWidth = CGFloat(10)})
         ])
         
         lineSizeButton.showsMenuAsPrimaryAction = true
@@ -73,27 +66,25 @@ class CanvasViewController: UIViewController{
     }
     
     func setColorButton() {
-        let lineClosure = { (action: UIAction) in
-            print(action.title) }
         
         colorButton.menu = UIMenu(children: [
-            UIAction(title: "1", handler: lineClosure),
-            UIAction(title: "2", handler: lineClosure),
-            UIAction(title: "3", handler: lineClosure),
-            UIAction(title: "4", handler: lineClosure)
+            UIAction(image: UIImage(systemName: "square.fill")?.withTintColor(.black, renderingMode: .alwaysOriginal),
+                     handler: { [self] ( _ ) in drawView.strokeColor = .black}),
+            UIAction(image: UIImage(systemName: "square.fill")?.withTintColor(.red, renderingMode: .alwaysOriginal),
+                     handler: { [self] ( _ ) in drawView.strokeColor = .red}),
+            UIAction(image: UIImage(systemName: "square.fill")?.withTintColor(.blue, renderingMode: .alwaysOriginal),
+                     handler: { [self] ( _ ) in drawView.strokeColor = .blue}),
+            UIAction(image: UIImage(systemName: "square.fill")?.withTintColor(.brown, renderingMode: .alwaysOriginal),
+                     handler: { [self] ( _ ) in drawView.strokeColor = .brown}),
+            UIAction(image: UIImage(systemName: "square.fill")?.withTintColor(.green, renderingMode: .alwaysOriginal),
+                     handler: { [self] ( _ ) in drawView.strokeColor = .green}),
+            UIAction(image: UIImage(systemName: "square.fill")?.withTintColor(.white, renderingMode: .alwaysOriginal),
+                     handler: { [self] ( _ ) in drawView.strokeColor = .white})
         ])
         
         colorButton.showsMenuAsPrimaryAction = true
         colorButton.changesSelectionAsPrimaryAction = true
     }
-    
-//    private func setupCanvasView() {
-//        let toolPicker = PKToolPicker()
-//        toolPicker.setVisible(true, forFirstResponder: canvasView)
-//        toolPicker.addObserver(canvasView)
-//        canvasView.becomeFirstResponder()
-//        //canvasView.drawingPolicy = .anyInput
-//    }
     
     // MARK: - IBAction
     @IBAction func clearButtonAction(_ sender: UIButton) {
@@ -102,6 +93,7 @@ class CanvasViewController: UIViewController{
     
     @IBAction func eraserButtonAction(_ sender: UIButton) {
         //drawView.strokeWidth = CGFloat(sender.value)
+        print("colorButtonAction")
     }
     
     @IBAction func colorButtonAction(_ sender: UIButton) {
@@ -118,17 +110,7 @@ class CanvasViewController: UIViewController{
     }
     
     @IBAction func doneButtonAction(_ sender: UIButton) {
+        print("Done")
     }
-    //    @IBAction func clearButtonAction(_ sender: UIButton) {
-//        canvasView.drawing = PKDrawing()
-//    }
-//
-//    @IBAction func saveImageButtonAction(_ sender: UIButton) {
-//        let img = UIGraphicsImageRenderer(bounds: canvasView.bounds).image { (_) in
-//            canvasView.drawHierarchy(in: canvasView.bounds, afterScreenUpdates: true)
-//        }
-//
-//        UIImageWriteToSavedPhotosAlbum(img, nil, nil, nil)
-//    }
-//
+
 }
