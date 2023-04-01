@@ -5,6 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="UIMenu" message="Requires Xcode 11 or later." minToolsVersion="11.0" requiredIntegratedClassName="UICommandDiff"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -75,7 +76,7 @@
                                     <constraint firstAttribute="trailing" secondItem="LwV-yZ-DTE" secondAttribute="trailing" constant="16" id="qgB-zx-40O"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NSG-ZH-ZpG" customClass="PKCanvasView">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NSG-ZH-ZpG" customClass="DrawCanvasView" customModule="Drawing_App" customModuleProvider="target">
                                 <rect key="frame" x="10" y="234" width="394" height="558"/>
                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                             </view>
@@ -113,32 +114,39 @@
                                                     <action selector="eraserButtonAction:" destination="F0H-Xh-v81" eventType="touchUpInside" id="W9F-CV-bjb"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eb9-di-ek4">
+                                            <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iJ9-1Y-9mx">
                                                 <rect key="frame" x="147" y="0.0" width="40" height="40"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="40" id="aWu-qP-hHC"/>
-                                                    <constraint firstAttribute="height" constant="40" id="vHz-5N-XeV"/>
+                                                    <constraint firstAttribute="height" constant="40" id="Jyo-j8-god"/>
+                                                    <constraint firstAttribute="width" constant="40" id="dEi-TL-g21"/>
                                                 </constraints>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" image="circle.righthalf.fill" catalog="system">
-                                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </buttonConfiguration>
+                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <menu key="menu" id="Z5S-V5-tJ1">
+                                                    <children>
+                                                        <command title="Item 1" id="VqV-XF-r0k"/>
+                                                        <command title="Item 2" id="jFt-WS-vup"/>
+                                                    </children>
+                                                </menu>
+                                                <state key="normal" image="circle.righthalf.fill" catalog="system"/>
                                                 <connections>
-                                                    <action selector="colorButtonAction:" destination="F0H-Xh-v81" eventType="touchUpInside" id="TS7-pO-poI"/>
+                                                    <action selector="colorButtonAction:" destination="F0H-Xh-v81" eventType="touchUpInside" id="yac-ua-G6s"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KUh-29-55m">
+                                            <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Ii-W0-aVy">
                                                 <rect key="frame" x="220.5" y="0.0" width="40" height="40"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="40" id="857-Df-OCT"/>
-                                                    <constraint firstAttribute="width" constant="40" id="Hca-HF-Qpq"/>
+                                                    <constraint firstAttribute="height" constant="40" id="ITa-Ct-c5X"/>
+                                                    <constraint firstAttribute="width" constant="40" id="fLJ-Fz-rrY"/>
                                                 </constraints>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" image="tilde">
-                                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </buttonConfiguration>
+                                                <menu key="menu" id="GRD-QX-sfG">
+                                                    <children>
+                                                        <command title="Item 1" id="K1u-t3-utJ"/>
+                                                        <command title="Item 2" id="hT9-vj-jiN"/>
+                                                    </children>
+                                                </menu>
+                                                <state key="normal" image="tilde"/>
                                                 <connections>
-                                                    <action selector="lineSizeButtonAction:" destination="F0H-Xh-v81" eventType="touchUpInside" id="3bs-2f-FRY"/>
+                                                    <action selector="lineSizeButtonAction:" destination="F0H-Xh-v81" eventType="touchUpInside" id="aYj-iq-qj4"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O31-ae-XSW">
@@ -203,12 +211,13 @@
                     </view>
                     <connections>
                         <outlet property="clearButton" destination="1Po-JE-OBY" id="jV9-bE-GmA"/>
-                        <outlet property="colorButton" destination="eb9-di-ek4" id="e1u-A3-7OK"/>
+                        <outlet property="colorButton" destination="iJ9-1Y-9mx" id="Hwo-Hj-pd8"/>
                         <outlet property="doneButton" destination="NPW-rP-OY4" id="wJ3-1L-pTd"/>
+                        <outlet property="drawView" destination="NSG-ZH-ZpG" id="vin-ob-aCH"/>
                         <outlet property="drawingLabel" destination="g4F-fD-ct7" id="yPI-PA-xUa"/>
                         <outlet property="eraserButton" destination="ccD-yr-EmD" id="zwH-Cf-Wsr"/>
                         <outlet property="holdLabel" destination="LwV-yZ-DTE" id="dDe-4I-7oX"/>
-                        <outlet property="lineSizeButton" destination="KUh-29-55m" id="25w-77-N6m"/>
+                        <outlet property="lineSizeButton" destination="3Ii-W0-aVy" id="J8V-rK-x5k"/>
                         <outlet property="pencilButton" destination="O31-ae-XSW" id="SEq-nD-sVb"/>
                         <outlet property="subTitleLabel" destination="ZUv-P7-MlT" id="Bm6-SA-Tcw"/>
                         <outlet property="timeImageView" destination="Ayu-aJ-dwm" id="Gby-Uk-f6D"/>

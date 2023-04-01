@@ -9,6 +9,7 @@ import UIKit
 
 class CanvasViewController: UIViewController{
     
+    @IBOutlet weak var drawView: DrawCanvasView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var subTitleLabel: UILabel!
     @IBOutlet weak var drawingLabel: UILabel!
@@ -30,8 +31,9 @@ class CanvasViewController: UIViewController{
 //        canvasView.delegate = self
 //        canvasView.drawing = drawing
 //
-//        canvasView.layer.borderWidth = 1
-//        canvasView.layer.borderColor = UIColor(ciColor: .black).cgColor
+        
+        drawView.layer.borderWidth = 1
+        drawView.layer.borderColor = UIColor(ciColor: .black).cgColor
         
         drawingLabel.layer.borderWidth = 1
         drawingLabel.layer.borderColor = UIColor(ciColor: .black).cgColor
@@ -43,12 +45,46 @@ class CanvasViewController: UIViewController{
         doneButton.layer.borderColor = UIColor(ciColor: .black).cgColor
         doneButton.layer.cornerRadius = doneButton.frame.size.height / 2
         
+        setLineSize()
+        setColorButton()
         // Do any additional setup after loading the view.
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         //setupCanvasView()
+    }
+    
+    // MARK: - Function
+    
+    func setLineSize() {
+        let lineClosure = { (action: UIAction) in
+            print(action.title) }
+        
+        lineSizeButton.menu = UIMenu(children: [
+            UIAction(title: "1", handler: lineClosure),
+            UIAction(title: "2", handler: lineClosure),
+            UIAction(title: "3", handler: lineClosure),
+            UIAction(title: "4", handler: lineClosure)
+        ])
+        
+        lineSizeButton.showsMenuAsPrimaryAction = true
+        lineSizeButton.changesSelectionAsPrimaryAction = true
+    }
+    
+    func setColorButton() {
+        let lineClosure = { (action: UIAction) in
+            print(action.title) }
+        
+        colorButton.menu = UIMenu(children: [
+            UIAction(title: "1", handler: lineClosure),
+            UIAction(title: "2", handler: lineClosure),
+            UIAction(title: "3", handler: lineClosure),
+            UIAction(title: "4", handler: lineClosure)
+        ])
+        
+        colorButton.showsMenuAsPrimaryAction = true
+        colorButton.changesSelectionAsPrimaryAction = true
     }
     
 //    private func setupCanvasView() {
@@ -59,12 +95,13 @@ class CanvasViewController: UIViewController{
 //        //canvasView.drawingPolicy = .anyInput
 //    }
     
+    // MARK: - IBAction
     @IBAction func clearButtonAction(_ sender: UIButton) {
-        print("clearButtonAction")
+        drawView.clearCanvasView()
     }
     
     @IBAction func eraserButtonAction(_ sender: UIButton) {
-        print("eraserButtonAction")
+        //drawView.strokeWidth = CGFloat(sender.value)
     }
     
     @IBAction func colorButtonAction(_ sender: UIButton) {
@@ -77,6 +114,7 @@ class CanvasViewController: UIViewController{
     
     @IBAction func lineSizeButtonAction(_ sender: UIButton) {
         print("lineSizeButtonAction")
+        
     }
     
     @IBAction func doneButtonAction(_ sender: UIButton) {
