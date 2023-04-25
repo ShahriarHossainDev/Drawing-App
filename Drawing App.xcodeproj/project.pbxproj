@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA10DB4129F84F55007868E6 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = FA10DB4029F84F55007868E6 /* README.md */; };
+		FA10DB4629F84FCD007868E6 /* 3.png in Resources */ = {isa = PBXBuildFile; fileRef = FA10DB4329F84FCD007868E6 /* 3.png */; };
+		FA10DB4729F84FCD007868E6 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = FA10DB4429F84FCD007868E6 /* 1.png */; };
+		FA10DB4829F84FCD007868E6 /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = FA10DB4529F84FCD007868E6 /* 2.png */; };
 		FA2926DB29D43304005931AD /* CanvasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2926DA29D43304005931AD /* CanvasViewController.swift */; };
 		FA2926DD29D4366C005931AD /* Extenstions+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2926DC29D4366C005931AD /* Extenstions+View.swift */; };
 		FA31DB9829D405CC004FAC2F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA31DB9729D405CC004FAC2F /* AppDelegate.swift */; };
@@ -18,6 +22,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FA10DB4029F84F55007868E6 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		FA10DB4329F84FCD007868E6 /* 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3.png; sourceTree = "<group>"; };
+		FA10DB4429F84FCD007868E6 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
+		FA10DB4529F84FCD007868E6 /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.png; sourceTree = "<group>"; };
 		FA2926DA29D43304005931AD /* CanvasViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasViewController.swift; sourceTree = "<group>"; };
 		FA2926DC29D4366C005931AD /* Extenstions+View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extenstions+View.swift"; sourceTree = "<group>"; };
 		FA31DB9429D405CC004FAC2F /* Drawing App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Drawing App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -41,6 +49,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FA10DB4229F84FB0007868E6 /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				FA10DB4429F84FCD007868E6 /* 1.png */,
+				FA10DB4529F84FCD007868E6 /* 2.png */,
+				FA10DB4329F84FCD007868E6 /* 3.png */,
+			);
+			path = Image;
+			sourceTree = "<group>";
+		};
 		FA2926D829D432DB005931AD /* Canvas View */ = {
 			isa = PBXGroup;
 			children = (
@@ -61,6 +79,8 @@
 		FA31DB8B29D405CC004FAC2F = {
 			isa = PBXGroup;
 			children = (
+				FA10DB4029F84F55007868E6 /* README.md */,
+				FA10DB4229F84FB0007868E6 /* Image */,
 				FA31DB9629D405CC004FAC2F /* Drawing App */,
 				FA31DB9529D405CC004FAC2F /* Products */,
 			);
@@ -204,7 +224,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA31DBA429D405CE004FAC2F /* LaunchScreen.storyboard in Resources */,
+				FA10DB4629F84FCD007868E6 /* 3.png in Resources */,
+				FA10DB4829F84FCD007868E6 /* 2.png in Resources */,
+				FA10DB4729F84FCD007868E6 /* 1.png in Resources */,
 				FA31DBA129D405CE004FAC2F /* Assets.xcassets in Resources */,
+				FA10DB4129F84F55007868E6 /* README.md in Resources */,
 				FA31DB9F29D405CC004FAC2F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
